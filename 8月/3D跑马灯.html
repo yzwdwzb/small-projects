@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D旋转</title>
+  <!-- <link rel="stylesheet" href="./index.css"> -->
+  <style>
+        *{margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     }
+     body{
+       background-color: black;
+     }
+     .box{
+       width:100px;
+       height:100px;
+       margin: 200px auto;
+       position: fixed;
+       top:0;
+       left:0;
+       bottom:0;
+       right:0;
+       transform-style: preserve-3d;
+       transform:rotateX(-5deg) rotateY(0deg);
+       animation: run 10s linear infinite;
+     }
+     .box img{
+       width:100px;
+       height:100px;
+       position: absolute;
+       left:0;
+       top:0;
+       border: 2px solid #fff;
+       border-radius: 5px;
+     }
+ 
+     @keyframes run{
+        0%{
+         transform: rotateX(-5deg) rotateY(0deg);
+       }
+       25%{
+         transform: rotateX(-5deg) rotateY(90deg);
+       }
+       50%{
+         transform: rotateX(-5deg) rotateY(180deg);
+       }
+       75%{
+         transform: rotateX(-5deg) rotateY(270deg);
+       }
+       100%{
+         transform: rotateX(-5deg) rotateY(360deg);
+       }
+     }
+
+
+  </style>
+</head>
+
+<body>
+  <div class="box" id="imgBox">
+    
+  </div>
+  <script>
+    let img = "https://vkceyugu.cdn.bspapp.com/VKCEYUGU-3393facb-1b77-48a7-86d7-13d5976f7748/e4c06210-b529-43e1-aa93-b6d7a87fd11c.jpg";
+    let imgBox = document.getElementById('imgBox')
+       
+    let imgStr = ''
+    for(let i=0;i<6;i++){
+        imgStr += `<img class="img" src="${img}">`
+    }
+    imgBox.innerHTML = imgStr
+    
+    //根据长度分配空间
+    let imgList = document.querySelectorAll('.img')
+    let n = 360 / imgList.length;
+    for(let i=0;i<imgList.length;i++){
+        imgList[i].style.transform = `rotateY(${n*(i+1)}deg) translateZ(150px)`;
+    }
+    console.log(n)
+  </script>
+</body>
+
+</html>
