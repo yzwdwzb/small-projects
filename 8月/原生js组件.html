@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- 给标签 img 设置一个 is 属性，其值为我们自定义的元素的名字 -->
+    <img is="my-img" />
+    <div is="my-box"></div>
+  </body>
+
+  <script>
+    // 创建了一个继承自 HTMLImageElement 类的自定义类 MyImg
+    class MyImg extends HTMLImageElement {
+      constructor() {
+        super();
+        // console.log(this);
+        this.src = "https://avatars.githubusercontent.com/u/79249312?v=4";
+        this.style.width = "100px"
+        this.style.height = "100px"
+      }
+    }
+    class MyBox extends HTMLDivElement{
+        constructor(){
+            super();
+            // console.log(this);
+            this.innerHTML = `<span>hello</span>`
+            this.style.color = "blue"
+        }
+    }
+    /*customElements.define()，该方法用于注册一个自定义元素
+    *参数:自定义元素的名字 、自定义元素的构造函数 、可选参数对象，该对象有一个属性为 extends，可以指定自定义元素继承一个已创建的元素的名字
+    */
+    customElements.define("my-img", MyImg, { extends: "img" });
+    customElements.define("my-box", MyBox, { extends: "div" });
+  </script>
+</html>
