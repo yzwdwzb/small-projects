@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>进度条</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .line {
+            background-color: blue;
+            height: 2px;
+            position: fixed;
+
+        }
+        .content{
+            height: 3000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="line"></div>
+        <div class="content">
+           
+        </div>
+    </div>
+    <script>
+        let line = document.getElementsByClassName('line')[0]
+        let screenWidth = document.documentElement.clientWidth; //获取屏幕的宽度
+        let percent = 1
+        //设置线条宽度，即进度
+        let setLine = ()=>{
+            let th = getScrollTop();
+            let ch = getClientHeight();
+            let sh = getScrollHeight();
+            if (th + ch == sh) {
+                line.style.width = screenWidth + 'px'
+            } else {
+                let n = sh - th - ch
+                 percent = parseFloat(n / sh).toFixed(2)
+                line.style.width = (screenWidth * (1-percent)) + 'px'
+            }
+        }
+        setLine()
+        //监听滚动事件
+        window.onscroll = () => {
+            setLine()
+        }
+        //适应屏幕宽度变化
+        window.onresize = () => {
+            return (() => {
+                screenWidth = document.documentElement.clientWidth;
+                setLine()
+            })()
+        }
+        //获取滚动条到顶部的距离
+        function getScrollTop() {
+            var scroll_top = 0;
+            if (document.documentElement && document.documentElement.scrollTop) {
+                scroll_top = document.documentElement.scrollTop;
+            }
+            else if (document.body) {
+                scroll_top = document.body.scrollTop;
+            }
+            return scroll_top;
+        }
+        // 取窗口可视范围的高度 
+        function getClientHeight() {
+            var clientHeight = 0;
+            if (document.body.clientHeight && document.documentElement.clientHeight) {
+                var clientHeight = (document.body.clientHeight < document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+            }
+            else {
+                var clientHeight = (document.body.clientHeight > document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+            }
+            return clientHeight;
+        }
+        //取文档内容实际高度 
+        function getScrollHeight() {
+            return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        }
+    </script>
+</body>
+
+</html>
