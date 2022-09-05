@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽框</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 200px;
+            border: 1px solid gray;
+            position: fixed;
+            cursor: move;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        let box = document.getElementsByClassName('box')[0]
+       
+        box.addEventListener('mousedown',function(e){
+            //鼠标按下的时候，获取鼠标在盒子内的坐标 
+           let x = e.pageX - box.offsetLeft;
+           let y = e.pageY - box.offsetTop;
+           
+           document.addEventListener('mousemove',move);
+           //鼠标移动的时候，把鼠标在页面中的坐标，减去鼠标在盒子内的坐标就是模态框的left和top值
+            function move(e){
+                box.style.left = e.pageX - x + 'px';
+                box.style.top = e.pageY - y + 'px';
+            }
+            
+            //鼠标弹起，就让鼠标移动事件解除
+            document.addEventListener('mouseup',function(){
+                document.removeEventListener('mousemove',move)
+            });
+        })
+    </script>
+</body>
+</html>
