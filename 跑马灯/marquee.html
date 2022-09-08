@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>跑马灯</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="box" id="imgBox"></div>
+  <script>
+    let img = "https://vkceyugu.cdn.bspapp.com/VKCEYUGU-3393facb-1b77-48a7-86d7-13d5976f7748/e4c06210-b529-43e1-aa93-b6d7a87fd11c.jpg";
+    let imgBox = document.getElementById('imgBox')
+       
+    let imgStr = ''
+    for(let i=0;i<6;i++){
+        imgStr += `<img class="img" src="${img}">`
+    }
+    imgBox.innerHTML = imgStr
+    
+    //根据长度分配空间
+    let imgList = document.querySelectorAll('.img')
+    let n = 360 / imgList.length;
+    for(let i=0;i<imgList.length;i++){
+        imgList[i].style.transform = `rotateY(${n*(i+1)}deg) translateZ(150px)`;
+    }
+    console.log(n)
+  </script>
+</body>
+
+</html>
