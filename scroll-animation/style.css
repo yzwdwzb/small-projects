@@ -1,0 +1,40 @@
+body {
+    background-color: #efedd6;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+h2 {
+    text-align: center;
+}
+
+.box {
+    background-color: #124f60;
+    width: 300px;
+    height: 150px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 150px;
+
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    transform: translateX(400%);
+    transition: transform 0.4s ease;
+}
+
+.box p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #efedd6;
+}
+
+.box:nth-of-type(even) {
+    transform: translateX(-400%);
+}
+
+.box.show {
+    transform: translateX(0);
+}
