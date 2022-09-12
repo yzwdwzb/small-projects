@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拓展卡</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card active"
+            style="background-image: url('../image/wild_forest_card.avif');">
+            
+            <h3>Wild Forest</h3>
+        </div>
+        <div class="card"
+            style="background-image: url('../image/sunny_beach_card.avif');">
+            
+            <h3>Sunny Beach</h3>
+        </div>
+        <div class="card"
+            style="background-image: url('../image/explore_the_world_card.avif');">
+            <h3>Explore The World</h3>
+        </div>
+        <div class="card"
+            style="background-image: url('../image/city_on_winter_card.avif');">
+            <h3>City on Winter</h3>
+        </div>
+        <div class="card"
+            style="background-image: url('../image/mountains_clouds_card.avif');">
+            <h3>Mountains Clouds</h3>
+        </div>
+    </div>
+    <script>
+        let cardList = document.getElementsByClassName('card')
+        Array.from(cardList).forEach(element => {
+            element.addEventListener('click', () => {
+                removeClass()
+                element.classList.add('active')
+            })
+        });
+        let removeClass = () => {
+            Array.from(cardList).forEach(element => {
+                element.classList.remove('active')
+            });
+        }
+
+    </script>
+</body>
+
+</html>
