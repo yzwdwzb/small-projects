@@ -1,0 +1,194 @@
+
+.phone{ 
+    width: 375px;
+    height: 812px;
+    border: 1px solid grey;
+    box-shadow: 8px 5px 5px grey;
+    border-radius: 10px;
+    z-index: -1;
+    
+}
+.cover-box { 
+    background-color: black;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+
+.box{ 
+    margin-top: 200px;
+}
+.prize {
+    width: 120px;
+    height: 120px;
+    transform: rotateY(180deg) scale(1.5);
+    position: fixed;
+    border-radius: 8px;
+    transition: all 800ms ease-in;
+    background: url('../image/iphone13.jpg');
+    background-size:100%;
+    top: 280px;
+    left: 140px;
+}
+
+.card{
+    width: 120px;
+    height: 120px;
+    position: fixed;
+    animation: spin 4s ease-in-out infinite;
+    animation-iteration-count:1;
+    background: url('../image/card.png');
+    background-size:100%;
+    transform: rotateY(180deg);
+}
+
+.prize1 {
+    top: 200px;
+    left: 140px;
+}
+.prize2 {
+    left: 60px;
+    top: 350px;
+}
+.prize3 {
+    top: 350px;
+    left: 215px;
+    
+}
+
+
+@keyframes spin {
+    to {
+      transform: rotateY(900deg);
+    }
+  }
+  @keyframes spin1 {
+    to {
+      transform: rotateY(720deg);
+    }
+  }
+
+.title {
+    font-size: 32px;
+    color: rgba(225, 191, 142, 1);
+    position: relative;
+    text-align: center;
+   transform: translateY(60%);
+}
+
+.light {
+    width: 307px;
+    height: 361px;
+    position: absolute;
+    top: -50px;
+    left: 38px;
+    opacity: 1;
+    
+    animation: theLight 4s;
+    -webkit-animation: theLight 4s;
+    /*Safari and Chrome*/
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    /*动画的速度曲线*/
+    /* Safari 和 Chrome */
+    -webkit-animation: theLight 3s;
+    -webkit-animation-timing-function: ease-in-out;
+    /*动画的速度曲线*/
+    animation-direction: alternate;
+    /*轮流反向播放动画。*/
+    /* Safari 和 Chrome */
+    -webkit-animation-direction: alternate;
+    /*轮流反向播放动画。*/
+}
+
+@keyframes theLight {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.1;
+    }
+
+    20% {
+        opacity: 0.2;
+    }
+
+    30% {
+        opacity: 0.3;
+    }
+
+    40% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    60% {
+        opacity: 0.6;
+    }
+
+    70% {
+        opacity: 0.7;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.9;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes theLight {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.1;
+    }
+
+    20% {
+        opacity: 0.2;
+    }
+
+    30% {
+        opacity: 0.3;
+    }
+
+    40% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    60% {
+        opacity: 0.6;
+    }
+
+    70% {
+        opacity: 0.7;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.9;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
